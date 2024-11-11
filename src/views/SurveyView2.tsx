@@ -15,37 +15,37 @@ import SurveyButton from "../components/SurveyButton";
  * param {Type} - None
  * returns {Type} - None
  */
-export const SurveyView = () => {
+export const SurveyView2 = () => {
   return (
     <div>
-      <div className="surveyQuestionHeader">How are you feeling</div>
+      <div className="surveyQuestionHeader">How do you want to feel?</div>
       <div className="surveyButtonRow">
         <SurveyButton
-          imageSrc="/imgs/sadEmoji.png"
-          text="Sad"
-          color="#428bb9"
+          imageSrc="/imgs/calmEmoji.png"
+          text="Calm"
+          color="#7fcaff"
         ></SurveyButton>
         <SurveyButton
-          imageSrc="/imgs/happyEmoji.png"
-          text="Happy"
-          color="#d5bf2f"
+          imageSrc="/imgs/focusedEmoji.png"
+          text="Focused"
+          color="#ce2929"
         ></SurveyButton>
         <SurveyButton
-          imageSrc="/imgs/stressedEmoji.png"
-          text="Stressed"
-          color="#d5852f"
+          imageSrc="/imgs/confidentEmoji.png"
+          text="Confident"
+          color="#29ceb0"
         ></SurveyButton>
       </div>
       <div className="surveyButtonRow">
         <SurveyButton
-          imageSrc="/imgs/energeticEmoji.png"
-          text="Energetic"
-          color="#2fce29"
+          imageSrc="/imgs/comfortedEmoji.png"
+          text="Comforted"
+          color="#ce9d29"
         ></SurveyButton>
         <SurveyButton
-          imageSrc="/imgs/angryEmoji.png"
-          text="Angry"
-          color="#bf322a"
+          imageSrc="/imgs/motivatedEmoji.png"
+          text="Motivated"
+          color="#d967bb"
         ></SurveyButton>
       </div>
     </div>
