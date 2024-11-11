@@ -1,0 +1,38 @@
+body {
+  margin: 20px;
+  background-color: #c1e4fe;
+
+}
+
+.background .text {
+  color: #000000;
+  font-family: "Inter", Helvetica;
+  font-size: 12px;
+  font-weight: 400;
+  left: 655px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 644px;
+}
+
+.moody-melodies-logo {
+
+  height: 304px;
+  left: 538px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 363px;
+  max-width: 75%;
+}
+
+.background-triton {
+
+  height: 343px;
+  left: 311px;
+  object-fit: cover;
+  position: absolute;
+  top: 681px;
+  width: 847px;
+}

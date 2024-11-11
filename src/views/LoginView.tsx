@@ -4,8 +4,10 @@
  */
 
 import React from 'react';
-import logo from '../logo.svg';
-import '../App.css';
+import "./LoginViewStyle.css";
+
+import moodyMelodiesLogo from "../assets/moody-melodies-logo.png";
+import backgroundTriton from "../assets/background-triton.png";
 
 /**
  * Description: a view of the login page, only contains html elements,
@@ -17,22 +19,18 @@ import '../App.css';
 export const LoginView = () => {
     return (
 
-        //React default page as a place holder
-        <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    )
+    <div className="background">
+
+      <img
+          className="moody-melodies-logo"
+          src={moodyMelodiesLogo}
+        />
+
+      <img
+        className="background-triton"
+        src={backgroundTriton}
+      />
+
+    </div>
+  )
 };
