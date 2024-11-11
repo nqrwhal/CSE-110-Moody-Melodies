@@ -1,0 +1,17 @@
+body {
+  background-color: #c1e4fe;
+}
+
+.surveyQuestionHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  margin: 50px 0px;
+}
+
+.surveyButtonGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
