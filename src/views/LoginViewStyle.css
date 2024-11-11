@@ -1,7 +1,6 @@
 body {
   margin: 20px;
   background-color: #c1e4fe;
-
 }
 
 .background .text {
@@ -9,30 +8,57 @@ body {
   font-family: "Inter", Helvetica;
   font-size: 12px;
   font-weight: 400;
-  left: 655px;
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
   letter-spacing: 0;
   line-height: normal;
   position: absolute;
-  top: 644px;
+  top: 70%; /* Relative to viewport height */
 }
 
 .moody-melodies-logo {
-
-  height: 304px;
-  left: 538px;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 363px;
-  max-width: 75%;
+  height: auto;
+  width: 75%; /* Percentage-based width for responsiveness */
+  max-width: 363px; /* Ensure it doesn't get too large */
+  position: relative; /* Remove absolute positioning for responsiveness */
+  margin: 0 auto; /* Center the image */
+  display: block; /* Ensure it centers properly */
 }
 
 .background-triton {
+  height: auto;
+  width: 90%; /* Adjust the width dynamically */
+  max-width: 847px; /* Cap the maximum width */
+  position: relative; /* Remove absolute positioning */
+  margin: 20px auto; /* Center with margin */
+  display: block;
+  bottom: 0;
+}
 
-  height: 343px;
-  left: 311px;
-  object-fit: cover;
-  position: absolute;
-  top: 681px;
-  width: 847px;
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .moody-melodies-logo {
+    width: 85%; /* Adjust for smaller screens */
+  }
+  .background-triton {
+    width: 95%; /* Allow more space on small screens */
+  }
+  .background .text {
+    font-size: 10px; /* Reduce text size */
+    top: 60%; /* Adjust position */
+  }
+}
+
+/* For very small devices */
+@media (max-width: 480px) {
+  .moody-melodies-logo {
+    width: 95%; /* Maximize the image for very small devices */
+  }
+  .background-triton {
+    width: 100%; /* Take full width */
+  }
+  .background .text {
+    font-size: 9px; /* Further reduce font size */
+    top: 50%; /* Adjust position for smaller screens */
+  }
 }
