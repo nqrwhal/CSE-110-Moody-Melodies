@@ -4,17 +4,17 @@
  */
 
 import React from 'react';
-import "./LoginViewStyle.css";
-
+import "./LoginViewStyle.css"
 import moodyMelodiesLogo from "../assets/moody-melodies-logo.png";
 import backgroundTriton from "../assets/background-triton.png";
+import LoginForm from '../components/LoginPage/LoginForm';
 
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
  * 
- * param {Type} - None
- * returns {Type} - None
+ * param {Type}: None
+ * returns {Type}: None
  */
 export const LoginView = () => {
     return (
@@ -25,6 +25,8 @@ export const LoginView = () => {
           className="moody-melodies-logo"
           src={moodyMelodiesLogo}
         />
+
+      <LoginForm />
 
       <img
         className="background-triton"
