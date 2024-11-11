@@ -44,3 +44,25 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Documentation template
+
+### File header
+```
+/**
+ * @description: Brief description of the file's purpose
+ * @author: Your Name
+ */
+ ```
+
+ ### Function header
+ ```
+ /**
+ * Description:
+ * 
+ * param {type} param1: Description of the first parameter.
+ * param {type} param2: Description of the second parameter.
+ * returns {type}: Description of the return value.
+ */
+ ```
