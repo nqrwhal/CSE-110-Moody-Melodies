@@ -11,7 +11,7 @@ const Hpnew = () => {
         <body>
             <div className="container">
                 <div className="bg">
-                    <img id="corner" src={corner} width="100%" height="725px"></img>
+                    <img id="corner" src={corner} width="100%" height="100%"></img>
                 </div>
                 <div className="top-right">
                      
