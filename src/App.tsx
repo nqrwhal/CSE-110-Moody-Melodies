@@ -1,11 +1,11 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { HomePageView } from "./views/HomePageView"
+import { NewHomePageView } from "./views/NewHomePageView"
 
 function App() {
   return (
-    <HomePageView />
+    <NewHomePageView />
   );
 }
 

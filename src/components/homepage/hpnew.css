@@ -1,3 +1,53 @@
 body {
     background-color: #C1E5FE;
 }
+
+/* Container holding the image and the text */
+  .container {
+    position: relative;
+    text-align: center;
+    color: black;
+
+  }
+  
+  /* Top right text */
+  .top-right {
+    display: flex;
+    position: absolute;
+    top: 8px;
+    gap: 20px;
+    right: 100px;
+  }
+  
+  /* Bottom right text */
+  .top-center {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Centered text */
+  .centered {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ButtonRow {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+    
+  }
+
+  .IconButton {
+    height: 120px;
+    width: 120px;
+    border-radius: 25px;
+  }
