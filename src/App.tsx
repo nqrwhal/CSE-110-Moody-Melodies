@@ -4,8 +4,10 @@ import "./App.css";
 import { LoginView } from "./views/LoginView";
 import { SurveyView1 } from "./views/SurveyView1";
 import { SurveyView2 } from "./views/SurveyView2";
+import { SurveyView3 } from "./views/SurveyView3";
+import { SurveyView4 } from "./views/SurveyView4";
 function App() {
-  return <SurveyView2 />;
+  return <SurveyView4 />;
 }
 
 export default App;

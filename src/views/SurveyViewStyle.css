@@ -8,6 +8,7 @@ body {
   align-items: center;
   font-size: 60px;
   margin: 50px 0px;
+  text-align: center;
 }
 
 .surveyButtonRow {
@@ -31,4 +32,18 @@ body {
   display: flex;
   justify-content: center;
   font-size: 30px;
+}
+
+.surveyButtonRow3 {
+  margin-bottom: 0px;
+  padding: 0px 200px;
+}
+
+.surveyButtonRow3 .surveyButton {
+  height: 125px;
+  width: 125px;
+}
+
+.surveyButtonRow3 .buttonText {
+  font-size: 24px;
 }
