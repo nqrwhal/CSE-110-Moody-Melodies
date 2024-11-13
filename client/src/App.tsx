@@ -1,12 +1,30 @@
+// client/src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import { LoginView } from "./views/LoginView"
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { LoginView } from './views/LoginView';
+import { NewHomePageView } from './views/NewHomePageView';
 
-function App() {
+const App = () => {
   return (
-    <LoginView />
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginView />} />
+          <Route 
+            path="/" 
+            element={
+              <ProtectedRoute>
+                <NewHomePageView />
+              </ProtectedRoute>
+            } 
+          />
+          <Route path="*" element={<Navigate to="/login" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
-}
+};
 
 export default App;
