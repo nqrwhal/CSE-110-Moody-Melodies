@@ -6,7 +6,7 @@
 import React from "react";
 import logo from "../logo.svg";
 import "./SurveyViewStyle.css";
-
+import SurveySlider from "../components/SurveySlider";
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
@@ -20,6 +20,7 @@ export const SurveyView4 = () => {
       <div className="surveyQuestionHeader">
         How Many Songs Would You Like to Listen To?
       </div>
+      <SurveySlider></SurveySlider>
     </div>
   );
 };

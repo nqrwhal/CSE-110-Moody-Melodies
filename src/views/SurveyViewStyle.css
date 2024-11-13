@@ -47,3 +47,32 @@ body {
 .surveyButtonRow3 .buttonText {
   font-size: 24px;
 }
+
+.sliderHolder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  width: 300px;
+  height: 10px;
+  background-color: #ddd;
+  position: relative;
+  margin: 0px 20px;
+}
+
+.track {
+  background-color: #c2c2c2;
+  height: 100%;
+}
+
+.thumb {
+  height: 20px;
+  width: 20px;
+  background-color: #484848;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  top: -5px;
+}
