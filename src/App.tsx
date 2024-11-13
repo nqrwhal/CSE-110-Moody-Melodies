@@ -1,13 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { NewHomePageView } from "./views/NewHomePageView"
-import HomePageView from './views/HomePageView';
+import { LoginView } from "./views/LoginView"
 
 function App() {
   return (
-    <HomePageView />
+    <LoginView />
   );
 }
-
-export default App;
