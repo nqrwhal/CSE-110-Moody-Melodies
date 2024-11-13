@@ -57,11 +57,49 @@ router.post('/login', async (req, res) => {
     // Generate token
     const expiresIn = req.body.rememberMe ? '7d' : '1h';
     const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn });    
-    
+
     res.json({ token });
     console.log('User logged in');
   } catch (error) {
     res.status(500).json({ message: 'Server error' });
+  }
+});
+
+router.get('/verify', async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader?.startsWith('Bearer ')) {
+      return res.status(401).json({ 
+        valid: false,
+        message: 'Authorization header missing or invalid format' 
+      });
+    }
+
+    const token = authHeader.split(' ')[1];
+    const decoded = jwt.verify(token, JWT_SECRET) as { userId: string };
+    
+    const user = await User.findById(decoded.userId);
+    if (!user) {
+      return res.status(401).json({ 
+        valid: false,
+        message: 'User not found' 
+      });
+    }
+
+    return res.json({ 
+      valid: true,
+      user: {
+        id: user._id,
+        email: user.email
+      }
+    });
+
+  } catch (error) {
+    console.error('Token verification failed:', error);
+    return res.status(401).json({
+      valid: false,
+      message: error instanceof jwt.JsonWebTokenError ? 'Invalid token' : 'Verification failed'
+    });
   }
 });
 
