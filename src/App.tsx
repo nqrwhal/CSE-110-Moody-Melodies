@@ -8,3 +8,5 @@ function App() {
     <LoginView />
   );
 }
+
+export default App;
