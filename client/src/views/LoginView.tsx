@@ -3,36 +3,38 @@
  * @author Mark Yan
  */
 
-import React from 'react';
-import logo from '../logo.svg';
-import '../App.css';
-
+import React from "react";
+import "./LoginViewStyle.css";
+import moodyMelodiesLogo from "../assets/moody-melodies-logo.png";
+import backgroundTriton from "../assets/background-triton.png";
+import LoginForm from "../components/LoginPage/LoginForm";
+import { useAuth } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
- * 
- * param {Type} - None
- * returns {Type} - None
+ *
+ * param {Type}: None
+ * returns {Type}: None
  */
 export const LoginView = () => {
-    return (
+  const { isAuthenticated, isLoading } = useAuth();
 
-        //React default page as a place holder
-        <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    )
+  if (isLoading) {
+    return <div>Loading...</div>; // Add a loading spinner here
+  }
+
+  if (isAuthenticated) {
+    return <Navigate to="/" replace />;
+  }
+
+  return (
+    <div className="background">
+      <img className="moody-melodies-logo" src={moodyMelodiesLogo} />
+
+      <LoginForm />
+
+      <img className="background-triton" src={backgroundTriton} />
+    </div>
+  );
 };

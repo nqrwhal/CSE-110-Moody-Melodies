@@ -1,13 +1,31 @@
+// client/src/App.tsx
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 import { LoginView } from "./views/LoginView";
-import { SurveyView1 } from "./views/SurveyView1";
-import { SurveyView2 } from "./views/SurveyView2";
-import { SurveyView3 } from "./views/SurveyView3";
-import { SurveyView4 } from "./views/SurveyView4";
-function App() {
-  return <SurveyView4 />;
-}
+import { NewHomePageView } from "./views/NewHomePageView";
+import HomePageView from "./views/HomePageView";
+
+const App = () => {
+  return (
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<LoginView />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <NewHomePageView />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="*" element={<Navigate to="/login" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+  );
+};
 
 export default App;
