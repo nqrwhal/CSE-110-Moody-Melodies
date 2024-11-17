@@ -3,6 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import authRoutes from './routes/auth';
+import dotenv from 'dotenv';
+import routes from './spotifyAPI/router';
 
 const app = express();
 
@@ -30,6 +32,9 @@ app.use('*', (req, res) => {
   res.status(404).json({ message: 'Not found' });
 });
 
+// Mount Spotify API routes 
+app.use('/api', routes);
+
 // MongoDB connection
 const MONGODB_URI = "mongodb+srv://melodies:9ELjuATE8tCkM5pI@melodies.5abfe.mongodb.net/?retryWrites=true&w=majority&appName=melodies";
 mongoose.connect(MONGODB_URI!)
@@ -40,3 +45,6 @@ const PORT = 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+
