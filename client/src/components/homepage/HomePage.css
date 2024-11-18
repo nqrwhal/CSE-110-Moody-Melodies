@@ -7,7 +7,7 @@ body {
     position: relative;
     text-align: center;
     color: black;
-
+    height: 1000px;
   }
   
   /* Top right text */
@@ -16,15 +16,17 @@ body {
     position: absolute;
     top: 8px;
     gap: 20px;
-    right: 100px;
+    right: 4%;
   }
   
-  /* Bottom right text */
+  /* Top-center text */
   .top-center {
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
   }
   
   /* Centered text */
@@ -35,9 +37,10 @@ body {
     transform: translate(-50%, -50%);
   }
 
+  /* Buttons for survey */
   .ButtonRow {
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -45,9 +48,13 @@ body {
     margin-bottom: 50px;
     
   }
-
+  
   .IconButton {
     height: 120px;
     width: 120px;
     border-radius: 25px;
+  }
+
+  .bg {
+    height: 100%;
   }
