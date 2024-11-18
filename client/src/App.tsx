@@ -4,8 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginView } from './views/LoginView';
-import { NewHomePageView } from './views/NewHomePageView';
-import HomePageView from './views/HomePageView';
+import { HomePageView } from './views/HomePageView';
 
 
 const App = () => {
@@ -18,7 +17,7 @@ const App = () => {
             path="/" 
             element={
               <ProtectedRoute>
-                <NewHomePageView />
+                <HomePageView />
               </ProtectedRoute>
             } 
           />
