@@ -26,6 +26,20 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+// Route
+app.post("/survey/send", (req, res) => {
+  const { input } = req.body;
+
+  if (input) {
+
+    const surveyAPICall: string = `You sent: "${input}"`
+
+    res.json({ message: surveyAPICall });
+  } else {
+    res.status(400).json({ message: "Invalid input" });
+  }
+});
+
 // All other routes - 404 handler should be last
 app.use('*', (req, res) => {
   console.error(`404: Route not found - ${req.method} ${req.originalUrl}`);
@@ -33,13 +47,17 @@ app.use('*', (req, res) => {
 });
 
 // Mount Spotify API routes 
-app.use('/api', routes);
+app.use('/SpotifyAPI', routes);
+
 
 // MongoDB connection
 const MONGODB_URI = "mongodb+srv://melodies:9ELjuATE8tCkM5pI@melodies.5abfe.mongodb.net/?retryWrites=true&w=majority&appName=melodies";
 mongoose.connect(MONGODB_URI!)
   .then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('MongoDB connection error:', err));
+
+  
+
 
 const PORT = 5000;
 app.listen(PORT, () => {

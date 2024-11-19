@@ -1,6 +1,6 @@
 import React from 'react';
 import Hp from '../components/homepage/hp';
-import PlaylistCard from '../components/PlaylistCard';
+// import PlaylistCard from '../components/PlaylistCard';
 
 const HomePageView = () => {
   const playlists = [
@@ -18,14 +18,14 @@ const HomePageView = () => {
       <div className="playlist-section" style={{ marginTop: '20px', textAlign: 'center' }}>
         <h2>Saved Playlists:</h2>
         <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', marginTop: '10px' }}>
-          {playlists.map((playlist) => (
+          {/* {playlists.map((playlist) => (
             <PlaylistCard
               key={playlist.id}
               color={playlist.color}
               name={playlist.name}
               mood={playlist.mood}
             />
-          ))}
+          ))} */}
         </div>
       </div>
     </div>

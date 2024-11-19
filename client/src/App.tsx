@@ -6,6 +6,7 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginView } from './views/LoginView';
 import { NewHomePageView } from './views/NewHomePageView';
 import HomePageView from './views/HomePageView';
+import { SurveyAPICall } from './views/SurveyAPICall';
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginView />} />
+          <Route path="/api" element={<SurveyAPICall />} />
           <Route 
             path="/" 
             element={
