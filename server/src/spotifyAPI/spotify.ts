@@ -12,6 +12,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+
+
 let accessToken: string | null = null;
 
 interface Track {
@@ -24,6 +26,7 @@ interface Track {
 
 export async function fetchAccessToken(): Promise<string> {
     try {
+        console.log(process.env.SPOTIFY_CLIENT_ID);
         const response = await axios.post(
             'https://accounts.spotify.com/api/token',
             new URLSearchParams({ grant_type: 'client_credentials' }),
@@ -31,7 +34,7 @@ export async function fetchAccessToken(): Promise<string> {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization: `Basic ${Buffer.from(
-                        `${process.env.SPOTIFY_CLIENT_ID}:${process.env.SPOTIFY_CLIENT_SECRET}`
+                        `${'83838f0d51524cec9ef8a3d89b054a23'}:${'9eb029f92dcb416a9e2a56a803d6798b'}`
                     ).toString('base64')}`,
                 },
             }

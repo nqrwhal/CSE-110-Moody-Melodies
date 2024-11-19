@@ -40,14 +40,16 @@ app.post("/survey/send", (req, res) => {
   }
 });
 
+// Mount Spotify API routes 
+app.use('/SpotifyAPI', routes);
+
 // All other routes - 404 handler should be last
 app.use('*', (req, res) => {
   console.error(`404: Route not found - ${req.method} ${req.originalUrl}`);
   res.status(404).json({ message: 'Not found' });
 });
 
-// Mount Spotify API routes 
-app.use('/SpotifyAPI', routes);
+
 
 
 // MongoDB connection
