@@ -49,8 +49,14 @@ export async function fetchAccessToken(): Promise<string> {
 
 export async function getRecommendations(
     genre: string,
+    targetValence?: number,
+    minEnergy?: number,
+    targetEnergy?: number,    
     minDanceability?: number,
-    minPopularity?: number
+    targetAcousticness?: number,
+    minPopularity?: number,
+
+
 ): Promise<Track[]> {
     if (!accessToken) {
         await fetchAccessToken();
@@ -63,8 +69,13 @@ export async function getRecommendations(
             },
             params: {
                 seed_genres: genre,
+                target_valence: targetValence,
+                min_energy: minEnergy,
+                target_energy: targetEnergy,
                 min_danceability: minDanceability,
+                target_acousticness: targetAcousticness,
                 min_popularity: minPopularity,
+                
             },
         });
         return response.data.tracks as Track[];
