@@ -49,8 +49,8 @@ export async function fetchAccessToken(): Promise<string> {
 
 export async function getRecommendations(
     genre: string,
-    minDanceability: number,
-    minPopularity: number
+    minDanceability?: number,
+    minPopularity?: number
 ): Promise<Track[]> {
     if (!accessToken) {
         await fetchAccessToken();

@@ -12,15 +12,15 @@ const router = express.Router();
 router.get('/recommendations', async (req: Request, res: Response) => {
     const { genre, minDanceability, minPopularity } = req.query;
 
-    if (!genre || !minDanceability || !minPopularity) {
+    if (!genre) {
         return res.status(400).json({ error: 'Missing required query parameters.' });
     }
 
     try {
         const tracks = await getRecommendations(
             String(genre),
-            parseFloat(String(minDanceability)),
-            parseInt(String(minPopularity), 10)
+            minDanceability ? parseFloat(String(minDanceability)) : undefined,
+            minPopularity? parseInt(String(minPopularity), 10) : undefined
         );
         res.json({ tracks });
     } catch (error: any) {
