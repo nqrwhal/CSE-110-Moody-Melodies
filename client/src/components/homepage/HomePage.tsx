@@ -2,6 +2,7 @@ import './HomePage.css';
 import HomeButton from "../HomeButton";
 import LanguageButton from "../LanguageButton";
 import PlaylistCard from "./PlaylistCard";
+import { Link } from "react-router-dom";
 
 const Hp = () => {
     var corner = require("../../assets/corner icons.png");
@@ -43,7 +44,7 @@ const Hp = () => {
                 <div className="centered">
                     <div
                     className="playlist-section"
-                    style={{ marginTop: "20px", textAlign: "center" }}
+                    style={{ marginTop: "1px", textAlign: "center" }}
                 >
                     <h2>Saved Playlists:</h2>
                     <div
@@ -52,7 +53,7 @@ const Hp = () => {
                         gap: "20px",
                         justifyContent: "center",
                         marginTop: "1px",
-                        marginBottom: "40px",
+                        marginBottom: "60px",
                         }}
                     >
                         {playlists.map((playlist) => (
@@ -72,18 +73,21 @@ const Hp = () => {
                 
                 {/* Centered Survey Buttons */}
                 <div className="ButtonRow">
-                
+                    <Link to="/survey">
                         <HomeButton
                             imageSrc={gear}
                             text="Advanced"
                             color="#428bb9"
                         ></HomeButton>
+                    </Link>
 
+                    <Link to="/survey">
                         <HomeButton
                             imageSrc={check}
                             text="Simple"
                             color="#428bb9"
                         ></HomeButton>
+                    </Link>
                         
                 </div>
                 

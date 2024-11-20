@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginView } from './views/LoginView';
 import { HomePageView } from './views/HomePageView';
+import { SurveyView1 } from './views/SurveyView1';
 
 
 const App = () => {
@@ -14,13 +15,14 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<LoginView />} />
           <Route 
-            path="/" 
+            path="/home" 
             element={
               <ProtectedRoute>
                 <HomePageView />
               </ProtectedRoute>
             } 
           />
+          <Route path="/survey" element={<SurveyView1 />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
