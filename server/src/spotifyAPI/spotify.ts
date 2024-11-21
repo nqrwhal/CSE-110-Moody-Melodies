@@ -54,6 +54,7 @@ export async function getRecommendations(
     targetEnergy?: number,    
     minDanceability?: number,
     targetAcousticness?: number,
+    maxAcousticness?:number,
     minPopularity?: number,
 
 
@@ -74,6 +75,7 @@ export async function getRecommendations(
                 target_energy: targetEnergy,
                 min_danceability: minDanceability,
                 target_acousticness: targetAcousticness,
+                max_acousticness: maxAcousticness,
                 min_popularity: minPopularity,
                 
             },
