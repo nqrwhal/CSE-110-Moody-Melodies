@@ -99,7 +99,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ setIsLogin }) => {
       
       {error && <div className="error-message">{error}</div>}
 
-      <button type="submit" className="submit-button">Sign Up</button>
+      <button type="submit" className="submit-button">Sign Up and Log In</button>
       
       {/* Toggle Container Inside the Form */}
       <div className="toggle-container">
