@@ -1,3 +1,7 @@
+import React from "react";
+import { useAuth } from "../../context/AuthContext"; 
+import { useNavigate } from "react-router-dom";
+
 import './HomePage.css';
 import HomeButton from "../HomeButton";
 import LanguageButton from "../LanguageButton";
@@ -5,6 +9,14 @@ import PlaylistCard from "./PlaylistCard";
 import { Link } from "react-router-dom";
 
 const Hp = () => {
+    const { logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login');
+    };
+
     var corner = require("../../assets/corner icons.png");
     var gear = require("../../assets/gear.png");
     var check = require("../../assets/check.png");
@@ -32,8 +44,9 @@ const Hp = () => {
                             color="#428bb9"
                         ></LanguageButton>
 
-                        Log Out
-                </div>
+                <button onClick={handleLogout} className="logout-button">
+                    Log Out
+                </button>                </div>
 
                 {/* Title */}
                 <div className="top-center">
@@ -58,10 +71,17 @@ const Hp = () => {
                     >
                         {playlists.map((playlist) => (
                             <PlaylistCard
-                                key={playlist.id}
+                                id={playlist.id}
                                 color={playlist.color}
                                 name={playlist.name}
                                 mood={playlist.mood}
+                                onDelete={(id) => {
+                                    console.log("placeholder delete playlist with id", id);
+                                }
+                                }
+                                onRename={(id) => {
+                                    console.log("placeholder Rename playlist with id", id);
+                                }}
                             />
                         ))}
                     </div>
