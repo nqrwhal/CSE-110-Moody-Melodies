@@ -17,7 +17,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if (!genre || !mood) {
         return res.status(400).json({ error: 'Missing required query parameters.' });
     }
-
+    //list of valid genres, if genre is not found then return error
     const validGenres = ["acoustic", "afrobeat", "alt-rock", "alternative", "ambient", "anime", "black-metal",
     "bluegrass",
     "blues",
@@ -141,6 +141,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if(!validGenres.includes(String(genre))){
         res.status(400).json({ error: "Invalid genre "});
     }
+    //list of our valid moods, if mood is not included then return error
     const validMoods = ["happy", "sad", "angry", "energetic", "stressed"];
     if (!validMoods.includes(String(mood))) {
         res.status(400).json({ error: "Invalid mood" });
