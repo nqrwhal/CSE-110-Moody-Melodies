@@ -101,7 +101,7 @@ const LoginForm : React.FC<LoginFormProps> = ({ setIsLogin }) => {
       
       {error && <div className="error-message">{error}</div>}
 
-      <button type="submit" className="submit-button">
+      <button type="submit" className="submit-button" data-testid={'sign-in-testing'}>
         Sign In
       </button>
 
