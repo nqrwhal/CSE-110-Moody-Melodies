@@ -13,8 +13,8 @@ jobs: # the things being executed
     steps:
       - uses: actions/checkout@v4 # using version 4 of Actions
       - name: Install Dependencies
-        working-directory: /client
+        working-directory: ./client
         run: npm install  # Add the missing 'run' key
       - name: Unit Test
-        working-directory: /client
+        working-directory: ./client
         run: npm test  # the actual testing line

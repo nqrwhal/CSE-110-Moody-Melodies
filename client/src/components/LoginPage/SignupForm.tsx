@@ -1,15 +1,13 @@
 /**
- * @description: login form and auth logic
- * @author: Mark Yan and Yufei Ma
+ * @description: Signup form and auth logic
+ * @author: Yufei Ma
  */
-
 import React, { useState } from "react";
-import "./LoginFormStyle.css";
-
+import "./LoginFormStyle.css"; // Reuse the same styles
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from 'react-router-dom';
 
-interface LoginFormProps {
+interface SignupFormProps {
   setIsLogin: (value: boolean) => void;
 }
 
@@ -18,9 +16,9 @@ interface LoginFormProps {
  * param {Type}: None
  * returns {Type}: html of the login form
  */
-const LoginForm : React.FC<LoginFormProps> = ({ setIsLogin }) => {
-    const { login } = useAuth();
-    const navigate = useNavigate();
+const SignupForm: React.FC<SignupFormProps> = ({ setIsLogin }) => {
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,40 +27,40 @@ const LoginForm : React.FC<LoginFormProps> = ({ setIsLogin }) => {
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-    setError(''); // Clear error when email changes
+    setError('');
   };
 
   const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
-    setError(''); // Clear error when password changes
+    setError('');
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password, rememberMe }),
-          });
+      const response = await fetch('http://localhost:5000/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
 
       const data = await response.json();
 
       if (response.ok) {
         login(data.token, rememberMe);
-        navigate('/'); // Redirect to home page after successful login
+        navigate('/'); // Redirect to home page after successful signup
       } else {
         setError(data.message);
       }
     } catch (error) {
-      setError('Login failed');
+      setError('Signup failed');
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="login-form">
-      <h2 className="login-title">Sign In</h2>
+      <h2 className="login-title">Sign Up</h2>
       
       <div className="form-group">
         <label htmlFor="email" className="form-label">Email</label>
@@ -101,20 +99,18 @@ const LoginForm : React.FC<LoginFormProps> = ({ setIsLogin }) => {
       
       {error && <div className="error-message">{error}</div>}
 
-      <button type="submit" className="submit-button" data-testid={'sign-in-testing'}>
-        Sign In
-      </button>
-
+      <button type="submit" className="submit-button">Sign Up and Log In</button>
+      
       {/* Toggle Container Inside the Form */}
       <div className="toggle-container">
         <p>
-          Don't have an account?{" "}
+          Already have an account?{" "}
           <button
             type="button"
             className="toggle-button"
-            onClick={() => setIsLogin(false)}
+            onClick={() => setIsLogin(true)}
           >
-            Sign Up
+            Log In
           </button>
         </p>
       </div>
@@ -122,4 +118,4 @@ const LoginForm : React.FC<LoginFormProps> = ({ setIsLogin }) => {
   );
 };
 
-export default LoginForm;
+export default SignupForm;
