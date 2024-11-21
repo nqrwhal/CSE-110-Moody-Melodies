@@ -1,6 +1,6 @@
 /**
  * @description view of the login page
- * @author Mark Yan and
+* @author Mark Yan
  */
 
 import React from "react";
