@@ -1,5 +1,5 @@
 /*
-description: This file contains the router for the Spotify API.
+description: This file contains the router for the Spotify API
 
 author: @enrique
 */ 
@@ -10,12 +10,19 @@ import { getRecommendations } from './spotify';
 
 const router = express.Router();
 
+//several if statements to give a unique set of parameters per each mood
 router.get('/recommendations', async (req: Request, res: Response) => {
     const { genre, mood} = req.query;
 
     if (!genre || !mood) {
         return res.status(400).json({ error: 'Missing required query parameters.' });
     }
+
+    const validMoods = ["happy", "sad", "angry", "energetic", "stressed"];
+    if (!validMoods.includes(String(mood))) {
+        res.status(400).json({ error: "Invalid mood" });
+    }
+    
 
     //happy: target_valence: 0.8, min_energy: 0.6, target_energy: undefined, min_danceability: 0.7, target_acousticness: 0.4, min_popularity: 50
     if(mood === "happy"){
@@ -31,11 +38,15 @@ router.get('/recommendations', async (req: Request, res: Response) => {
                 undefined,
                 //minDanceability: 0.7
                 0.7,
+                //targetDanceability: undefined
+                undefined,
                 //targetAcousticness: 0.4
                 0.4,
                 //maxAcousticness: undefined
                 undefined,
-                //minPopularity: 50
+                //targetTempo: undefined
+                undefined,
+                //targetPopularity: 50
                 50
             );
             res.json({ tracks });
@@ -56,11 +67,15 @@ router.get('/recommendations', async (req: Request, res: Response) => {
                 0.3,
                 //minDanceability; undefined
                 undefined,
+                //targetDanceability: undefined
+                undefined,
                 //targetAcousticness: undefined
                 undefined,
                 //maxAcousticness: 0.6
                 0.6,
-                //minPopularity: 50
+                //targetTempo:
+                undefined,
+                //targetPopularity: 50
                 50
             );
             res.json({ tracks });
@@ -69,10 +84,96 @@ router.get('/recommendations', async (req: Request, res: Response) => {
         }
     }
 
+    if(mood === "angry"){
+        try{
+            const tracks = await getRecommendations(
+                String(genre),
+                //targetValence: 0.1-0.4
+                Math.floor(Math.random() * (40-10+1)+10)/100,
+                //minEnergy: undefined
+                undefined,
+                //targetEnergy: 0.7-1.0
+                Math.floor(Math.random()*(100-70+1)+70)/100,
+                //minDanceability: undefined
+                undefined,
+                //targetDanceability: undefined
+                undefined,
+                //targetAcousticness: 0.8
+                0.8,
+                //maxAcousticness: undefined
+                undefined,
+                //targetTempo: 130-200
+                Math.floor(Math.random()*(200-130+1)+130),
+                //targetPopularity: 50
+                50
+            );
+            res.json({ tracks });
+        } catch(error:any){
+            res.status(500).json({error: error.message});
+        }
+    }
+
+    if(mood === "energetic"){
+        try{
+            const tracks = await getRecommendations(
+                String(genre),
+                //targetValence: 0.6-1.0
+                Math.floor(Math.random() * (100-60+1)+60)/100,
+                //minEnergy: undefined
+                undefined,
+                //targetEnergy: 0.8-1.0
+                Math.floor(Math.random()*(100-80+1)+80)/100,
+                //minDanceability: undefined
+                undefined,
+                //targetDanceability: 0.7-1.0
+                Math.floor(Math.random()*(100-70+1)+70)/100,
+                //targetAcousticness: undefined
+                undefined,
+                //maxAcousticness: undefined
+                undefined,
+                //targetTempo: 130-200
+                Math.floor(Math.random()*(200-130+1)+130),
+                //targetPopularity: 50
+                50
+            );
+            res.json({ tracks });
+        } catch(error:any){
+            res.status(500).json({error: error.message});
+        }
+    }
 
 
-
-
+    if(mood === "stressed"){
+        try{
+            const tracks = await getRecommendations(
+                String(genre),
+                //targetValence: 0.4-0.6
+                Math.floor(Math.random() * (60-40+1)+40)/100,
+                //minEnergy: undefined
+                undefined,
+                //targetEnergy: 0.2-0.4
+                Math.floor(Math.random()*(100-80+1)+80)/100,
+                //minDanceability: undefined
+                undefined,
+                //targetDanceability: undefined
+                undefined,
+                //targetAcousticness: 0.8-1.0
+                Math.floor(Math.random()*(100-80+1)+80)/100,
+                //maxAcousticness: undefined
+                undefined,
+                //targetTempo: 60-90
+                Math.floor(Math.random()*(90-60+1)+60),
+                //targetPopularity: 50
+                50
+            );
+            res.json({ tracks });
+        } catch(error:any){
+            res.status(500).json({error: error.message});
+        }
+    }
+    
+    
+    
 
 });
 

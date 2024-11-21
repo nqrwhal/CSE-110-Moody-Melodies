@@ -53,9 +53,11 @@ export async function getRecommendations(
     minEnergy?: number,
     targetEnergy?: number,    
     minDanceability?: number,
+    targetDanceability?: number,
     targetAcousticness?: number,
     maxAcousticness?:number,
-    minPopularity?: number,
+    targetTempo?: number,
+    targetPopularity?: number,
 
 
 ): Promise<Track[]> {
@@ -74,9 +76,11 @@ export async function getRecommendations(
                 min_energy: minEnergy,
                 target_energy: targetEnergy,
                 min_danceability: minDanceability,
+                target_danceability: targetDanceability,
                 target_acousticness: targetAcousticness,
                 max_acousticness: maxAcousticness,
-                min_popularity: minPopularity,
+                target_tempo: targetTempo,
+                target_popularity: targetPopularity,
                 
             },
         });
