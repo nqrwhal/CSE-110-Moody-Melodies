@@ -7,7 +7,7 @@ import React from "react";
 import "./LoginViewStyle.css";
 import moodyMelodiesLogo from "../assets/moody-melodies-logo.png";
 import backgroundTriton from "../assets/background-triton.png";
-import LoginForm from "../components/LoginPage/LoginForm";
+import AuthForm from "../components/LoginPage/AuthForm";
 import { useAuth } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
 /**
@@ -25,16 +25,22 @@ export const LoginView = () => {
   }
 
   if (isAuthenticated) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/home" replace />;
   }
 
   return (
     <div className="background">
-      <img className="moody-melodies-logo" src={moodyMelodiesLogo} />
-
-      <LoginForm />
-
-      <img className="background-triton" src={backgroundTriton} />
+      <img
+        className="moody-melodies-logo"
+        src={moodyMelodiesLogo}
+        alt="Moody Melodies Logo"
+      />
+      <AuthForm />
+      <img
+        className="background-triton"
+        src={backgroundTriton}
+        alt="Background"
+      />
     </div>
   );
 };
