@@ -13,7 +13,8 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-
+const SPOTIFY_CLIENT_ID = '83838f0d51524cec9ef8a3d89b054a23';
+const SPOTIFY_CLIENT_SECRET = '9eb029f92dcb416a9e2a56a803d6798b';
 let accessToken: string | null = null;
 
 interface Track {
@@ -34,7 +35,7 @@ export async function fetchAccessToken(): Promise<string> {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',
                     Authorization: `Basic ${Buffer.from(
-                        `${'83838f0d51524cec9ef8a3d89b054a23'}:${'9eb029f92dcb416a9e2a56a803d6798b'}`
+                        `${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`
                     ).toString('base64')}`,
                 },
             }
