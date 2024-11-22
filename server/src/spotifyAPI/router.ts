@@ -12,135 +12,14 @@ const router = express.Router();
 
 //several if statements to give a unique set of parameters per each mood
 router.get('/recommendations', async (req: Request, res: Response) => {
-    const { genre, mood} = req.query;
-
-    if (!genre || !mood) {
+    const {mood} = req.query;
+    //genre will be implemented in the future
+    //prioritizing simple survey first
+    if (!mood) {
         return res.status(400).json({ error: 'Missing required query parameters.' });
     }
-    //list of valid genres, if genre is not found then return error
-    const validGenres = ["acoustic", "afrobeat", "alt-rock", "alternative", "ambient", "anime", "black-metal",
-    "bluegrass",
-    "blues",
-    "bossanova",
-    "brazil",
-    "breakbeat",
-    "british",
-    "cantopop",
-    "chicago-house",
-    "children",
-    "chill",
-    "classical",
-    "club",
-    "comedy",
-    "country",
-    "dance",
-    "dancehall",
-    "death-metal",
-    "deep-house",
-    "detroit-techno",
-    "disco",
-    "disney",
-    "drum-and-bass",
-    "dub",
-    "dubstep",
-    "edm",
-    "electro",
-    "electronic",
-    "emo",
-    "folk",
-    "forro",
-    "french",
-    "funk",
-    "garage",
-    "german",
-    "gospel",
-    "goth",
-    "grindcore",
-    "groove",
-    "grunge",
-    "guitar",
-    "happy",
-    "hard-rock",
-    "hardcore",
-    "hardstyle",
-    "heavy-metal",
-    "hip-hop",
-    "holidays",
-    "honky-tonk",
-    "house",
-    "idm",
-    "indian",
-    "indie",
-    "indie-pop",
-    "industrial",
-    "iranian",
-    "j-dance",
-    "j-idol",
-    "j-pop",
-    "j-rock",
-    "jazz",
-    "k-pop",
-    "kids",
-    "latin",
-    "latino",
-    "malay",
-    "mandopop",
-    "metal",
-    "metal-misc",
-    "metalcore",
-    "minimal-techno",
-    "movies",
-    "mpb",
-    "new-age",
-    "new-release",
-    "opera",
-    "pagode",
-    "party",
-    "philippines-opm",
-    "piano",
-    "pop",
-    "pop-film",
-    "post-dubstep",
-    "power-pop",
-    "progressive-house",
-    "psych-rock",
-    "punk",
-    "punk-rock",
-    "r-n-b",
-    "rainy-day",
-    "reggae",
-    "reggaeton",
-    "road-trip",
-    "rock",
-    "rock-n-roll",
-    "rockabilly",
-    "romance",
-    "sad",
-    "salsa",
-    "samba",
-    "sertanejo",
-    "show-tunes",
-    "singer-songwriter",
-    "ska",
-    "sleep",
-    "songwriter",
-    "soul",
-    "soundtracks",
-    "spanish",
-    "study",
-    "summer",
-    "swedish",
-    "synth-pop",
-    "tango",
-    "techno",
-    "trance",
-    "trip-hop",
-    "turkish",
-    "work-out",
-    "world-music"];
-    if(!validGenres.includes(String(genre))){
-        res.status(400).json({ error: "Invalid genre "});
-    }
+
+
     //list of our valid moods, if mood is not included then return error
     const validMoods = ["happy", "sad", "angry", "energetic", "stressed"];
     if (!validMoods.includes(String(mood))) {
@@ -153,7 +32,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
         try {
 
             const tracks = await getRecommendations(
-                String(genre),
+                "pop",
                 //targetValence: 0.8-1.0
                 Math.floor(Math.random() * (100-80+1)+80)/100,
                 //minEnergy: 0.6
@@ -182,7 +61,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if(mood === "sad"){
         try{
             const tracks = await getRecommendations(
-                String(genre),
+                "sad",
                 //targetValence: 0.2-0.4
                 Math.floor(Math.random() * (40-20+1) + 20) / 100,
                 //minEnergy: undefined
@@ -211,7 +90,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if(mood === "angry"){
         try{
             const tracks = await getRecommendations(
-                String(genre),
+                "rock",
                 //targetValence: 0.1-0.4
                 Math.floor(Math.random() * (40-10+1)+10)/100,
                 //minEnergy: undefined
@@ -240,7 +119,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if(mood === "energetic"){
         try{
             const tracks = await getRecommendations(
-                String(genre),
+                "club",
                 //targetValence: 0.6-1.0
                 Math.floor(Math.random() * (100-60+1)+60)/100,
                 //minEnergy: undefined
@@ -270,7 +149,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
     if(mood === "stressed"){
         try{
             const tracks = await getRecommendations(
-                String(genre),
+                "classical",
                 //targetValence: 0.4-0.6
                 Math.floor(Math.random() * (60-40+1)+40)/100,
                 //minEnergy: undefined
