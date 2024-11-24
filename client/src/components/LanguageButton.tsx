@@ -1,12 +1,12 @@
 import React from "react";
 
-interface IconButtonProps {
+interface LanguageButtonProps {
   imageSrc: string;
   text: string;
   color: string;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({
+const IconButton: React.FC<LanguageButtonProps> = ({
   imageSrc,
   text,
   color,

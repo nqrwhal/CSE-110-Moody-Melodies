@@ -4,9 +4,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginView } from './views/LoginView';
-import { NewHomePageView } from './views/NewHomePageView';
-import HomePageView from './views/HomePageView';
 import { SurveyAPICall } from './views/SurveyAPICall';
+import { HomePageView } from './views/HomePageView';
+import { SurveyView1 } from './views/SurveyView1';
 
 
 const App = () => {
@@ -17,13 +17,14 @@ const App = () => {
           <Route path="/login" element={<LoginView />} />
           <Route path="/api" element={<SurveyAPICall />} />
           <Route 
-            path="/" 
+            path="/home" 
             element={
               <ProtectedRoute>
-                <NewHomePageView />
+                <HomePageView />
               </ProtectedRoute>
             } 
           />
+          <Route path="/survey" element={<SurveyView1 />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>

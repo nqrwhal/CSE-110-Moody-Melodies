@@ -7,7 +7,7 @@ body {
     position: relative;
     text-align: center;
     color: black;
-
+    height: 1000px;
   }
   
   /* Top right text */
@@ -16,15 +16,17 @@ body {
     position: absolute;
     top: 8px;
     gap: 20px;
-    right: 100px;
+    right: 4%;
   }
   
-  /* Bottom right text */
+  /* Top-center text */
   .top-center {
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
   }
   
   /* Centered text */
@@ -35,9 +37,10 @@ body {
     transform: translate(-50%, -50%);
   }
 
+  /* Buttons for survey */
   .ButtonRow {
     position: absolute;
-    top: 50%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -45,9 +48,36 @@ body {
     margin-bottom: 50px;
     
   }
-
+  
   .IconButton {
     height: 120px;
     width: 120px;
     border-radius: 25px;
   }
+
+  .bg {
+    height: 100%;
+  }
+  .logout-button {
+    background-color: #dc3545; /* Bootstrap's danger color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.logout-button:hover {
+  background-color: #c82333; /* Darker shade on hover */
+}
+
+/* Ensure top-right container uses flex to align items */
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 8px;
+  right: 4%;
+}
