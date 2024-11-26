@@ -16,7 +16,7 @@ import { sendToServer } from "../utils/api";
  * param {Type} - None
  * returns {Type} - None
  */
-export const SurveyView2 = () => {
+export const SurveyView2advanced = () => {
   const handleClick = (emotion: string) => {
     sendToServer("/SpotifyApi/recommendations", { emotion }).catch((error) =>
       console.error("Error:", error)

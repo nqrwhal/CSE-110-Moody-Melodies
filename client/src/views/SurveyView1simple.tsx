@@ -4,7 +4,6 @@
  */
 
 import React from "react";
-import logo from "../logo.svg";
 import "./SurveyViewStyle.css";
 import SurveyButton from "../components/SurveyButton";
 import { sendToServer } from "../utils/api";
@@ -15,7 +14,7 @@ import { sendToServer } from "../utils/api";
  * param {Type} - None
  * returns {Type} - None
  */
-export const SurveyView1 = () => {
+export const SurveyView1simple = () => {
   const handleClick = (emotion: string) => {
     sendToServer("/SpotifyApi/recommendations", { emotion }).catch((error) =>
       console.error("Error:", error)
