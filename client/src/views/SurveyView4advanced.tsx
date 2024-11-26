@@ -14,13 +14,18 @@ import SurveySlider from "../components/SurveySlider";
  * param {Type} - None
  * returns {Type} - None
  */
-export const SurveyView4 = () => {
+export const SurveyView4advanced = () => {
   return (
     <div>
       <div className="surveyQuestionHeader">
         How Many Songs Would You Like to Listen To?
       </div>
       <SurveySlider></SurveySlider>
+
+      <button style={{ padding: '10px 20px', fontSize: '20px' }} className="exit">
+            Finish
+      </button>     
+
     </div>
   );
 };

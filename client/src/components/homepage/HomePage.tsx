@@ -93,7 +93,7 @@ const Hp = () => {
                 
                 {/* Centered Survey Buttons */}
                 <div className="ButtonRow">
-                    <Link to="/survey">
+                    <Link to="/advanced-survey">
                         <HomeButton
                             imageSrc={gear}
                             text="Advanced"
@@ -101,7 +101,7 @@ const Hp = () => {
                         ></HomeButton>
                     </Link>
 
-                    <Link to="/survey">
+                    <Link to="/simple-survey">
                         <HomeButton
                             imageSrc={check}
                             text="Simple"
