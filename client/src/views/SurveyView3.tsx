@@ -18,7 +18,7 @@ import { sendToServer } from "../utils/api";
  */
 export const SurveyView3 = () => {
   const handleClick = (emotion: string) => {
-    sendToServer("/api/recommendations", { emotion }).catch((error) =>
+    sendToServer("/SpotifyApi/recommendations", { emotion }).catch((error) =>
       console.error("Error:", error)
     );
   };
