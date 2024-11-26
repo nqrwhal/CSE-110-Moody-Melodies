@@ -8,6 +8,7 @@ import logo from "../logo.svg";
 import "./SurveyViewStyle.css";
 import SurveyButton from "../components/SurveyButton";
 import { sendToServer } from "../utils/api";
+import { Link } from "react-router-dom";
 
 /**
  * Description: a view of the login page, only contains html elements,
@@ -26,38 +27,48 @@ export const SurveyView2advanced = () => {
     <div>
       <div className="surveyQuestionHeader">How do you want to feel?</div>
       <div className="surveyButtonRow">
-        <SurveyButton
-          imageSrc="/imgs/calmEmoji.png"
-          text="Calm"
-          color="#7fcaff"
-          onClick={() => handleClick("calm")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/focusedEmoji.png"
-          text="Focused"
-          color="#ce2929"
-          onClick={() => handleClick("focused")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/confidentEmoji.png"
-          text="Confident"
-          color="#29ceb0"
-          onClick={() => handleClick("confident")}
-        ></SurveyButton>
+        <Link to="/advanced-survey-genres">
+          <SurveyButton
+            imageSrc="/imgs/calmEmoji.png"
+            text="Calm"
+            color="#7fcaff"
+            onClick={() => handleClick("calm")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/advanced-survey-genres">
+          <SurveyButton
+            imageSrc="/imgs/focusedEmoji.png"
+            text="Focused"
+            color="#ce2929"
+            onClick={() => handleClick("focused")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/advanced-survey-genres">
+          <SurveyButton
+            imageSrc="/imgs/confidentEmoji.png"
+            text="Confident"
+            color="#29ceb0"
+            onClick={() => handleClick("confident")}
+          ></SurveyButton>
+        </Link>
       </div>
       <div className="surveyButtonRow">
-        <SurveyButton
-          imageSrc="/imgs/comfortedEmoji.png"
-          text="Comforted"
-          color="#ce9d29"
-          onClick={() => handleClick("comforted")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/motivatedEmoji.png"
-          text="Motivated"
-          color="#d967bb"
-          onClick={() => handleClick("motivated")}
-        ></SurveyButton>
+        <Link to="/advanced-survey-genres">
+          <SurveyButton
+            imageSrc="/imgs/comfortedEmoji.png"
+            text="Comforted"
+            color="#ce9d29"
+            onClick={() => handleClick("comforted")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/advanced-survey-genres">
+          <SurveyButton
+            imageSrc="/imgs/motivatedEmoji.png"
+            text="Motivated"
+            color="#d967bb"
+            onClick={() => handleClick("motivated")}
+          ></SurveyButton>
+        </Link>
       </div>
     </div>
   );
