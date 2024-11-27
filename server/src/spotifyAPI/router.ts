@@ -25,7 +25,8 @@ const moodConfig = {
         targetLoudness: undefined,
         targetMode: 1.0,
         targetInstrumentalness: undefined,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },
     sad: {
         genre: "sad",
@@ -40,10 +41,11 @@ const moodConfig = {
         targetLoudness: undefined,
         targetMode: 0.0,
         targetInstrumentalness: undefined,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },
     angry: {
-        genre: "rock",
+        genre: "hard-rock",
         targetValence: () => Math.floor(Math.random() * (40 - 10 + 1) + 10) / 100,
         minEnergy: undefined,
         targetEnergy: () => Math.floor(Math.random() * (100 - 70 + 1) + 70) / 100,
@@ -55,7 +57,8 @@ const moodConfig = {
         targetLoudness: () => Math.floor(Math.random() * (-5 - -10 + 1) + -10),
         targetMode: undefined,
         targetInstrumentalness: () => Math.floor(Math.random() * (80 - 50 + 1) + 50) / 100,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },
     energetic: {
         genre: "club",
@@ -70,7 +73,8 @@ const moodConfig = {
         targetLoudness: undefined,
         targetMode: 1,
         targetInstrumentalness: undefined,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },
     stressed: {
         genre: "classical",
@@ -85,7 +89,8 @@ const moodConfig = {
         targetLoudness: () => Math.floor(Math.random() * (-10 - -20 + 1) + -20),
         targetMode: 1,
         targetInstrumentalness: () => Math.floor(Math.random() * (100 - 80 + 1) + 80) / 100,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },
     calm: {
         genre: "ambient",
@@ -100,8 +105,76 @@ const moodConfig = {
         targetLoudness: () => Math.floor(Math.random() * (-10 - -20 + 1) + -20),
         targetMode: 1,
         targetInstrumentalness: () => Math.floor(Math.random() * (100 - 40 + 1) + 40) / 100,
-        targetPopularity: 50
+        targetPopularity: 50,
+        limit: 10,
     },//focused, confident, comforted, motivated
+    focused:{
+        genre: "electronic",
+        targetValence: () => Math.floor(Math.random() * (60 - 30 + 1) + 30) / 100,
+        minEnergy: undefined,
+        targetEnergy: () => Math.floor(Math.random() * (50 - 20 + 1) + 20) / 100,
+        minDanceability: undefined,
+        targetDanceability: () => Math.floor(Math.random() * (100 - 70 + 1) + 70) / 100,
+        targetAcousticness: () => Math.floor(Math.random() * (100 - 50 + 1) + 50) / 100,
+        maxAcousticness: undefined,
+        targetTempo: undefined,
+        targetLoudness: Math.floor(Math.random() * (-10 - -20 + 1) + -20),
+        targetMode: undefined,
+        targetInstrumentalness: () => Math.floor(Math.random() * (100 - 40 + 1) + 40) / 100,
+        targetPopularity: 25,
+        limit: 10,
+
+    },
+    confident:{
+        genre: "hip-hop",
+        targetValence: () => Math.floor(Math.random() * (100 - 60 + 1) + 60) / 100,
+        minEnergy: undefined,
+        targetEnergy: () => Math.floor(Math.random() * (100 - 70 + 1) + 70) / 100,
+        minDanceability: undefined,
+        targetDanceability: () => Math.floor(Math.random() * (100 - 60 + 1) + 60) / 100,
+        targetAcousticness: undefined,
+        maxAcousticness: undefined,
+        targetTempo: undefined,
+        targetLoudness: Math.floor(Math.random() * (0 - -10 + 1) + -10),
+        targetMode: undefined,
+        targetInstrumentalness: undefined,
+        targetPopularity: 35,
+        limit: 10,
+
+    },
+    comforted:{
+        genre: "pop",
+        targetValence: () => Math.floor(Math.random() * (80 - 50 + 1) + 50) / 100,
+        minEnergy: undefined,
+        targetEnergy: () => Math.floor(Math.random() * (60 - 30 + 1) + 30) / 100,
+        minDanceability: 0.6,
+        targetDanceability: undefined,
+        targetAcousticness: undefined,
+        maxAcousticness: undefined,
+        targetTempo: () => Math.floor(Math.random() * (100 - 80 + 1) + 80),
+        targetLoudness: undefined,
+        targetMode: undefined,
+        targetInstrumentalness: Math.floor(Math.random() * (100 - 50 + 1) + 50) / 100,
+        targetPopularity: 65,
+        limit: 10,
+    },
+    motivated:{
+        genre: "electro",
+        targetValence: () => Math.floor(Math.random() * (100 - 60 + 1) + 60) / 100,
+        minEnergy: .7,
+        targetEnergy: () => Math.floor(Math.random() * (100 - 90 + 1) + 90) / 100,
+        minDanceability: 0.6,
+        targetDanceability: undefined,
+        targetAcousticness: undefined,
+        maxAcousticness: undefined,
+        targetTempo: () => Math.floor(Math.random() * (200 - 160 + 1) + 160),
+        targetLoudness: undefined,
+        targetMode: 1,
+        targetInstrumentalness: undefined,
+        targetPopularity: 50,
+        limit: 10,
+    },
+    
 };
 
 router.get('/recommendations', async (req: Request, res: Response) => {
@@ -135,12 +208,14 @@ router.get('/recommendations', async (req: Request, res: Response) => {
             typeof config.targetLoudness === 'function' ? config.targetLoudness() : config.targetLoudness,
             config.targetMode,
             typeof config.targetInstrumentalness === 'function' ? config.targetInstrumentalness() : config.targetInstrumentalness,
-            config.targetPopularity
+            config.targetPopularity,
+            config.limit
         );
-        res.json({ tracks });
-        //print out the tracks
-        console.log(tracks.map((track) => track.name));
-    } catch (error: any) {
+        //print out the tracks to the server
+        res.json(tracks.map((track) => track.name + " by " + track.artists[0].name ));
+        //print out the tracks to the console
+        console.log(tracks.map((track) => track.name + " by " + track.artists[0].name ));
+        } catch (error: any) {
         res.status(500).json({ error: error.message });
     }
 });

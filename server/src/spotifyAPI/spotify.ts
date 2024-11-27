@@ -62,6 +62,7 @@ export async function getRecommendations(
     targetMode?: number,
     targetInstrumentalness?: number,
     targetPopularity?: number,
+    limit?: number
 
 
 ): Promise<Track[]> {
@@ -88,6 +89,7 @@ export async function getRecommendations(
                 target_mode: targetMode,
                 target_instrumetalness: targetInstrumentalness,
                 target_popularity: targetPopularity,
+                limit: limit
                 
             },
         });
