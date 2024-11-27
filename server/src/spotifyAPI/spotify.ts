@@ -58,6 +58,9 @@ export async function getRecommendations(
     targetAcousticness?: number,
     maxAcousticness?:number,
     targetTempo?: number,
+    targetLoudness?: number,
+    targetMode?: number,
+    targetInstrumentalness?: number,
     targetPopularity?: number,
 
 
@@ -81,6 +84,9 @@ export async function getRecommendations(
                 target_acousticness: targetAcousticness,
                 max_acousticness: maxAcousticness,
                 target_tempo: targetTempo,
+                target_loudness: targetLoudness,
+                target_mode: targetMode,
+                target_instrumetalness: targetInstrumentalness,
                 target_popularity: targetPopularity,
                 
             },
