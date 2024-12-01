@@ -3,8 +3,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import authRoutes from './routes/auth';
-import dotenv from 'dotenv';
-import routes from './spotifyAPI/router';
+import routes from './geminiAPI/router';
 
 const app = express();
 
@@ -40,8 +39,11 @@ app.post("/survey/send", (req, res) => {
   }
 });
 
-// Mount Spotify API routes 
-app.use('/SpotifyAPI', routes);
+
+// Mount Gemini API routes
+app.use('/api/gemini', routes);
+
+
 
 // All other routes - 404 handler should be last
 app.use('*', (req, res) => {
