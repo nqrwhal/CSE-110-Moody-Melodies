@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for survey slider component
+ * @author: Angelo Aromin
+ */
+
 import React, { useState } from "react";
 import ReactSlider from "react-slider";
 

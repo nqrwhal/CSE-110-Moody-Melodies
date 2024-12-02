@@ -11,6 +11,8 @@ import { SurveyView1advanced } from './views/SurveyView1advanced';
 import { SurveyView2advanced } from './views/SurveyView2advanced';
 import { SurveyView3advanced } from './views/SurveyView3advanced';
 import { SurveyView4advanced } from './views/SurveyView4advanced';
+import SurveyResultsView from './views/SurveyResultsView';
+
 
 
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
           <Route path="/advanced-survey-feels" element={<SurveyView2advanced />} />
           <Route path="/advanced-survey-genres" element={<SurveyView3advanced />} />
           <Route path="/advanced-survey-number" element={<SurveyView4advanced />} />
+          <Route path="/results" element={<SurveyResultsView  />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>

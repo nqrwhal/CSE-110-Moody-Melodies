@@ -1,3 +1,8 @@
+/**
+ * @description: 
+ * @author: 
+ */
+
 // client/src/context/AuthContext.tsx
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 

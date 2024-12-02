@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for language button component
+ * @author: Yves Mojica and Yuliana Chavez
+ */
+
 import React from "react";
 
 interface LanguageButtonProps {

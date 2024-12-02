@@ -7,6 +7,8 @@ import React from "react";
 import "./SurveyViewStyle.css";
 import SurveyButton from "../components/SurveyButton";
 import { sendToServer } from "../utils/api";
+import { Link } from "react-router-dom";
+
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
@@ -24,38 +26,48 @@ export const SurveyView1simple = () => {
     <div>
       <div className="surveyQuestionHeader">How are you feeling</div>
       <div className="surveyButtonRow">
-        <SurveyButton
-          imageSrc="/imgs/sadEmoji.png"
-          text="Sad"
-          color="#428bb9"
-          onClick={() => handleClick("sad")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/happyEmoji.png"
-          text="Happy"
-          color="#d5bf2f"
-          onClick={() => handleClick("happy")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/stressedEmoji.png"
-          text="Stressed"
-          color="#d5852f"
-          onClick={() => handleClick("stressed")}
-        ></SurveyButton>
+        <Link to="/results">
+          <SurveyButton
+            imageSrc="/imgs/sadEmoji.png"
+            text="Sad"
+            color="#428bb9"
+            onClick={() => handleClick("sad")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/results">
+          <SurveyButton
+            imageSrc="/imgs/happyEmoji.png"
+            text="Happy"
+            color="#d5bf2f"
+            onClick={() => handleClick("happy")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/results">
+          <SurveyButton
+            imageSrc="/imgs/stressedEmoji.png"
+            text="Stressed"
+            color="#d5852f"
+            onClick={() => handleClick("stressed")}
+          ></SurveyButton>
+        </Link>
       </div>
       <div className="surveyButtonRow">
-        <SurveyButton
-          imageSrc="/imgs/energeticEmoji.png"
-          text="Energetic"
-          color="#2fce29"
-          onClick={() => handleClick("energetic")}
-        ></SurveyButton>
-        <SurveyButton
-          imageSrc="/imgs/angryEmoji.png"
-          text="Angry"
-          color="#bf322a"
-          onClick={() => handleClick("angry")}
-        ></SurveyButton>
+        <Link to="/results">
+          <SurveyButton
+            imageSrc="/imgs/energeticEmoji.png"
+            text="Energetic"
+            color="#2fce29"
+            onClick={() => handleClick("energetic")}
+          ></SurveyButton>
+        </Link>
+        <Link to="/results">
+          <SurveyButton
+            imageSrc="/imgs/angryEmoji.png"
+            text="Angry"
+            color="#bf322a"
+            onClick={() => handleClick("angry")}
+          ></SurveyButton>
+        </Link>
       </div>
     </div>
   );
