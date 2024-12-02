@@ -1,5 +1,17 @@
+/**
+ * @description: 
+ * @author: 
+ */
+
 import React, { useState } from "react";
 
+/**
+ * Description: a view of the login page, only contains html elements,
+ * components should be wrapped inside
+ *
+ * param {Type}: None
+ * returns {Type}: None
+ */
 export const SurveyAPICall = () => {
     const [inputValue, setInputValue] = useState("");
     const [serverResponse, setServerResponse] = useState("");

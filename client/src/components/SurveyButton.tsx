@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for survey button component
+ * @author: Angelo Aromin
+ */
+
 import React from "react";
 
 interface SurveyButtonProps {

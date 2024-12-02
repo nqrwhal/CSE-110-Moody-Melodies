@@ -1,6 +1,19 @@
+/**
+ * @description: 
+ * @author: 
+ */
+
 import React from 'react';
 import PlaylistCard from '../components/homepage/PlaylistCard';
+import { Link } from "react-router-dom";
 
+/**
+ * Description: a view of the login page, only contains html elements,
+ * components should be wrapped inside
+ *
+ * param {Type}: None
+ * returns {Type}: None
+ */
 const SurveyResultsView: React.FC = () => {
   // Simulated data for the generated playlist
   const generatedPlaylist = {
@@ -38,7 +51,8 @@ const SurveyResultsView: React.FC = () => {
         />
       </div>
 
-      {/* Return to Home Page Button (Non-Functional) */}
+      {/* Return to Home Page Button */}
+      <Link to="/home">
       <button
         style={{
           marginTop: '20px',
@@ -51,6 +65,7 @@ const SurveyResultsView: React.FC = () => {
       >
         Return to Home Page
       </button>
+      </Link>
     </div>
   );
 };

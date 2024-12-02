@@ -7,6 +7,8 @@ import React from "react";
 import logo from "../logo.svg";
 import "./SurveyViewStyle.css";
 import SurveySlider from "../components/SurveySlider";
+import { Link } from "react-router-dom";
+
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
@@ -21,10 +23,11 @@ export const SurveyView4advanced = () => {
         How Many Songs Would You Like to Listen To?
       </div>
       <SurveySlider></SurveySlider>
-
-      <button style={{ padding: '10px 20px', fontSize: '20px' }} className="exit">
+      <Link to="/results">
+        <button style={{ padding: '10px 20px', fontSize: '20px' }} className="exit">
             Finish
-      </button>     
+        </button>     
+      </Link>
 
     </div>
   );

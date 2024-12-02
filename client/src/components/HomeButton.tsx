@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for home button component
+ * @author: Yves Mojica and Yuliana Chavez
+ */
+
 import React from "react";
 
 interface HomeButtonProps {
@@ -5,6 +10,7 @@ interface HomeButtonProps {
   text: string;
   color: string;
 }
+
 
 const IconButton: React.FC<HomeButtonProps> = ({
   imageSrc,

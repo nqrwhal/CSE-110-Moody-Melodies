@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for homepage of webapp
+ * @author: Yves Mojica, Yuliana Chavez, Yufei Ma
+ */
+
 import React from "react";
 import { useAuth } from "../../context/AuthContext"; 
 import { useNavigate } from "react-router-dom";
@@ -8,6 +13,11 @@ import LanguageButton from "../LanguageButton";
 import PlaylistCard from "./PlaylistCard";
 import { Link } from "react-router-dom";
 
+/**
+ * Description: Homepage
+ * param {Type}: None
+ * returns {Type}: html of the homepage
+ */
 const Hp = () => {
     const { logout } = useAuth();
     const navigate = useNavigate();
@@ -17,11 +27,13 @@ const Hp = () => {
         navigate('/login');
     };
 
+    {/* Images */}
+
     var corner = require("../../assets/corner icons.png");
     var gear = require("../../assets/gear.png");
     var check = require("../../assets/check.png");
     var globe = require("../../assets/globe.png");
-
+    
     const playlists = [
         { id: 1, color: "#FF6961", name: "Chill Vibes", mood: "Relaxed" },
         { id: 2, color: "#77DD77", name: "Workout Mix", mood: "Energetic" },

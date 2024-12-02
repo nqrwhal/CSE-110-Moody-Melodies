@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for playlist component on homepage
+ * @author: Yuliana Chavez
+ */
+
 import React, { useState } from 'react';
 
 interface PlaylistCardProps {

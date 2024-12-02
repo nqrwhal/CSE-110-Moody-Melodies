@@ -1,3 +1,8 @@
+/**
+ * @description: Provides code for protected route of the homepage
+ * @author: 
+ */
+
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 

@@ -1,6 +1,12 @@
-body {
+/**
+ * @description: Provides styling for the homepage
+ * @author: Yves Mojica, Yuliana Chavez, Yufei Ma
+ */
+
+ /* Body of Page */
+  body {
     background-color: #C1E5FE;
-}
+  }   
 
 /* Container holding the image and the text */
   .container {
@@ -49,15 +55,14 @@ body {
     
   }
   
+  /* Buttons for survey */
   .IconButton {
     height: 120px;
     width: 120px;
     border-radius: 25px;
   }
 
-  .bg {
-    height: 100%;
-  }
+  /* Buttons for Logging Out */
   .logout-button {
     background-color: #dc3545; /* Bootstrap's danger color */
     color: white;
@@ -68,6 +73,7 @@ body {
     font-weight: bold;
 }
 
+/* Buttons for Logging Out */
 .logout-button:hover {
   background-color: #c82333; /* Darker shade on hover */
 }

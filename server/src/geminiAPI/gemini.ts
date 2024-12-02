@@ -78,5 +78,5 @@ export async function getRecommendations(
     }
 };
 
-getRecommendations("happy", "sad", ["pop", "rock"], ["guitar", "drums"], 5); // Example usage
+getRecommendations("happy", "sad", ["pop", "rock"], ["guitar", "drums"], "5"); // Example usage
 
