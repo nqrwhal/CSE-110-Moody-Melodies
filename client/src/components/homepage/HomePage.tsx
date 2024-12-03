@@ -3,7 +3,7 @@
  * @author: Yves Mojica, Yuliana Chavez, Yufei Ma
  */
 
-import React from "react";
+import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext"; 
 import { useNavigate } from "react-router-dom";
 
@@ -33,12 +33,14 @@ const Hp = () => {
     var gear = require("../../assets/gear.png");
     var check = require("../../assets/check.png");
     var globe = require("../../assets/globe.png");
-    
-    const playlists = [
+
+    const defaultPlaylists = [
         { id: 1, color: "#FF6961", name: "Chill Vibes", mood: "Relaxed" },
         { id: 2, color: "#77DD77", name: "Workout Mix", mood: "Energetic" },
         { id: 3, color: "#FFD700", name: "Focus Flow", mood: "Focused" },
       ];
+
+    const [playlists, RenderPlaylist] = useState(defaultPlaylists);
 
     return(
         <body>
@@ -88,6 +90,7 @@ const Hp = () => {
                                 name={playlist.name}
                                 mood={playlist.mood}
                                 onDelete={(id) => {
+                                    RenderPlaylist(playlists.filter(item => item.id !== id));
                                     console.log("placeholder delete playlist with id", id);
                                 }
                                 }
