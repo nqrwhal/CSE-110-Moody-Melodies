@@ -27,10 +27,6 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ id, color, name, mood, onDe
     setIsEditing(false);
   };
 
-  const handleDelte = () => {
-
-    
-  };
 
   return (
     <div
