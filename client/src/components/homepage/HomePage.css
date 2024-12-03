@@ -3,74 +3,73 @@
  * @author: Yves Mojica, Yuliana Chavez, Yufei Ma
  */
 
- /* Body of Page */
-  body {
-    background-color: #C1E5FE;
-  }   
+/* Body of Page */
+body {
+  background-color: #c1e5fe;
+}
 
 /* Container holding the image and the text */
-  .container {
-    position: relative;
-    text-align: center;
-    color: black;
-    height: 1000px;
-  }
-  
-  /* Top right text */
-  .top-right {
-    display: flex;
-    position: absolute;
-    top: 8px;
-    gap: 20px;
-    right: 4%;
-  }
-  
-  /* Top-center text */
-  .top-center {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  /* Centered text */
-  .centered {
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+  height: 1000px;
+}
 
-  /* Buttons for survey */
-  .ButtonRow {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
-    
-  }
-  
-  /* Buttons for survey */
-  .IconButton {
-    height: 120px;
-    width: 120px;
-    border-radius: 25px;
-  }
+/* Top right text */
+.top-right {
+  display: flex;
+  position: absolute;
+  top: 8px;
+  gap: 20px;
+  right: 4%;
+}
 
-  /* Buttons for Logging Out */
-  .logout-button {
-    background-color: #dc3545; /* Bootstrap's danger color */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+/* Top-center text */
+.top-center {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Buttons for survey */
+.ButtonRow {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+/* Buttons for survey */
+.IconButton {
+  height: 120px;
+  width: 120px;
+  border-radius: 25px;
+}
+
+/* Buttons for Logging Out */
+.logout-button {
+  background-color: #dc3545; /* Bootstrap's danger color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* Buttons for Logging Out */
@@ -86,4 +85,8 @@
   position: absolute;
   top: 8px;
   right: 4%;
+}
+
+a {
+  text-decoration: none;
 }
