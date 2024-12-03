@@ -50,12 +50,7 @@ const Hp = () => {
     const [playlists, RenderPlaylist] = useState(defaultPlaylists);
 
     function removeElementsById(items: PlayList[], id: number): PlayList[] {
-        for (let i = items.length - 1; i >= 0; i--) {
-            if (items[i].id === id) {
-                items.splice(i, 1); // Remove the current element
-            }
-        }
-        return items
+        return items.filter(item => item.id !== id)
     }
 
     return(
