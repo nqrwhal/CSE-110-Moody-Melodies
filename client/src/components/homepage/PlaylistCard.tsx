@@ -27,6 +27,11 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ id, color, name, mood, onDe
     setIsEditing(false);
   };
 
+  const handleDelte = () => {
+
+    
+  };
+
   return (
     <div
       style={{
@@ -51,7 +56,7 @@ const PlaylistCard: React.FC<PlaylistCardProps> = ({ id, color, name, mood, onDe
       ) : (
         <>
           <p>
-            <strong>Name:</strong> {name}
+              <strong>Name:</strong> {newName}
           </p>
           <p>
             <strong>Mood:</strong> {mood}
