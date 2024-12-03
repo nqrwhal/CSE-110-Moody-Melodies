@@ -49,10 +49,6 @@ const Hp = () => {
 
     const [playlists, RenderPlaylist] = useState(defaultPlaylists);
 
-    function removeElementsById(items: PlayList[], id: number): PlayList[] {
-        return items.filter(item => item.id !== id)
-    }
-
     return(
         <body>
             <div className="container">
@@ -101,9 +97,8 @@ const Hp = () => {
                                 name={playlist.name}
                                 mood={playlist.mood}
                                 onDelete={(id) => {
-                                    RenderPlaylist(removeElementsById(playlists,id));
+                                    RenderPlaylist(playlists.filter(item => item.id !== id));
                                     console.log("placeholder delete playlist with id", id);
-                                    console.log(playlists);
                                 }
                                 }
                                 onRename={(id) => {
