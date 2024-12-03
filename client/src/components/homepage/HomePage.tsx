@@ -34,13 +34,6 @@ const Hp = () => {
     var check = require("../../assets/check.png");
     var globe = require("../../assets/globe.png");
 
-    type PlayList = {
-        id: number;
-        color: string;
-        name: string;
-        mood: string;
-    }
-    
     const defaultPlaylists = [
         { id: 1, color: "#FF6961", name: "Chill Vibes", mood: "Relaxed" },
         { id: 2, color: "#77DD77", name: "Workout Mix", mood: "Energetic" },
