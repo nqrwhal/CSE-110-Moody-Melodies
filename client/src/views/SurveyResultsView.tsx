@@ -7,6 +7,7 @@ import React, { useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import PlaylistCard from '../components/homepage/PlaylistCard';
 import { Link } from "react-router-dom";
+import PageLoading from '../components/PageLoading';
 
 interface Song {
   songName: string;
@@ -42,7 +43,7 @@ const SurveyResultsView: React.FC = () => {
           const params = new URLSearchParams();
           if (currentMood) params.append('currentMood', currentMood);
           if (targetMood) params.append('targetMood', targetMood);
-          if (genres && genres.length > 0) params.append('genres', genres.join(','));
+          if (genres && genres.length > 0) params.append('genres[]', genres.join(','));
           if (length) params.append('length', length.toString());
           return params.toString();
         };
@@ -53,7 +54,7 @@ const SurveyResultsView: React.FC = () => {
           throw new Error('Failed to fetch playlist');
         }
         const data = await response.json();
-        setPlaylist(data.tracks);
+        setPlaylist(data);
       } catch (error) {
         setError((error as Error).message);
       }
@@ -97,7 +98,7 @@ const SurveyResultsView: React.FC = () => {
           ))}
         </div>
       ) : (
-        <p>Loading playlist...</p>
+          <PageLoading />
       )}
 
       {/* Return to Home Page Button */}
