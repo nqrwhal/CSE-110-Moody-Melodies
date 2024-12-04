@@ -5,7 +5,7 @@ import { getRecommendations, Playlist, Song } from './gemini';
 
 const router = express.Router();
 
-const validMoods = ['happy', 'sad', 'angry', 'relaxed', 'energetic', "calm", "focused", "confident", "comforted", "motivated"];
+const validMoods = ['happy', 'stressed', 'sad', 'angry', 'relaxed', 'energetic', "calm", "focused", "confident", "comforted", "motivated"];
 /**
  * GET /recommendations
  * Query Parameters:
