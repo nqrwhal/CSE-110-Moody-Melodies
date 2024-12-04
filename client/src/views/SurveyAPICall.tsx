@@ -3,7 +3,11 @@
  * @author: 
  */
 
-import React, { useState } from "react";
+
+//deprecated
+
+
+/* import React, { useState } from "react";
 
 /**
  * Description: a view of the login page, only contains html elements,
@@ -12,7 +16,7 @@ import React, { useState } from "react";
  * param {Type}: None
  * returns {Type}: None
  */
-export const SurveyAPICall = () => {
+/* export const SurveyAPICall = () => {
     const [inputValue, setInputValue] = useState("");
     const [serverResponse, setServerResponse] = useState("");
 
@@ -57,4 +61,4 @@ export const SurveyAPICall = () => {
             </div>
         </div>
     );
-}
+}  */

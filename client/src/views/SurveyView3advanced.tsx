@@ -3,13 +3,10 @@
  * @author Angelo Aromin
  */
 
-import React from "react";
-import logo from "../logo.svg";
+import React, { useState } from "react";
 import "./SurveyViewStyle.css";
 import SurveyButton from "../components/SurveyButton";
-import { sendToServer } from "../utils/api";
-import { Link } from "react-router-dom";
-
+import { useNavigate, useLocation } from "react-router-dom";
 /**
  * Description: a view of the login page, only contains html elements,
  * components should be wrapped inside
@@ -18,84 +15,71 @@ import { Link } from "react-router-dom";
  * returns {Type} - None
  */
 export const SurveyView3advanced = () => {
-  const handleClick = (emotion: string) => {
-    sendToServer("/SpotifyApi/recommendations", { emotion }).catch((error) =>
-      console.error("Error:", error)
-    );
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { currentMood, targetMood } = location.state || {};
+  const [genres, setGenres] = useState<string[]>([]);
+
+  const handleClick = (genre: string) => {
+    setGenres([...genres, genre]);
+    navigate("/advanced-survey-number", { state: { currentMood, targetMood, genres: [...genres, genre] } });
   };
+
   return (
     <div>
       <div className="surveyQuestionHeader">Select your preferred genre(s)</div>
       <div className="surveyButtonRow surveyButtonRow3">
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/jazzEmoji.png"
-            text="Jazz"
-            color="#428bb9"
-            onClick={() => handleClick("jazz")}
-          ></SurveyButton>
-        </Link>
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/classicalEmoji.png"
-            text="Classical"
-            color="#d5bf2f"
-            onClick={() => handleClick("classical")}
-          ></SurveyButton>
-        </Link>
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/rockEmoji.png"
-            text="Rock"
-            color="#d5852f"
-            onClick={() => handleClick("rock")}
-          ></SurveyButton>
-        </Link>
-      </div>
-      <div className="surveyButtonRow surveyButtonRow3">
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/hiphopEmoji.png"
-            text="Hip-hop"
-            color="#2fce29"
-            onClick={() => handleClick("hiphop")}
-          ></SurveyButton>
-        </Link>
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/electronicEmoji.png"
-            text="Electronic"
-            color="#bf322a"
-            onClick={() => handleClick("electronic")}
-          ></SurveyButton>
-        </Link>
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/popEmoji.png"
-            text="Pop"
-            color="#b942a1"
-            onClick={() => handleClick("pop")}
-          ></SurveyButton>
-        </Link>
-      </div>
-      <div className="surveyButtonRow surveyButtonRow3">
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/folkEmoji.png"
-            text="Folk"
-            color="#2a99bf"
-            onClick={() => handleClick("folk")}
-          ></SurveyButton>
-        </Link>
-        <Link to="/advanced-survey-number">
-          <SurveyButton
-            imageSrc="/imgs/worldmusicEmoji.png"
-            text="World Music"
-            color="#716aff"
-            onClick={() => handleClick("worldmusic")}
-          ></SurveyButton>
-        </Link>
+        <SurveyButton
+          imageSrc="/imgs/jazzEmoji.png"
+          text="Jazz"
+          color="#428bb9"
+          onClick={() => handleClick("jazz")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/classicalEmoji.png"
+          text="Classical"
+          color="#d5bf2f"
+          onClick={() => handleClick("classical")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/rockEmoji.png"
+          text="Rock"
+          color="#d5852f"
+          onClick={() => handleClick("rock")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/hiphopEmoji.png"
+          text="Hip-hop"
+          color="#2fce29"
+          onClick={() => handleClick("hiphop")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/popEmoji.png"
+          text="Pop"
+          color="#b942a1"
+          onClick={() => handleClick("pop")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/folkEmoji.png"
+          text="Folk"
+          color="#2a99bf"
+          onClick={() => handleClick("folk")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/worldmusicEmoji.png"
+          text="World Music"
+          color="#716aff"
+          onClick={() => handleClick("worldmusic")}
+        />
+        <SurveyButton
+          imageSrc="/imgs/electronicEmoji.png"
+          text="Electronic"
+          color="#bf322a"
+          onClick={() => handleClick("electronic")}
+        />
       </div>
     </div>
   );
 };
+

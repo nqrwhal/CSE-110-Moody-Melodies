@@ -51,7 +51,6 @@ export async function getRecommendations(
     currentMood: string,
     targetMood: string,
     genres: string[],
-    instruments: string[],
     length: string
 ): Promise<Playlist> {
         const model = genAI.getGenerativeModel({
@@ -63,7 +62,7 @@ export async function getRecommendations(
         },
     });
 
-    const prompt = `You are an AI music curator. You are tasked with creating a playlist of ${length} songs that will transition the listener from ${currentMood} to ${targetMood}. The playlist should feature ${instruments.join(', ')} and consist of songs in the following genres or match the general energy of them: ${genres.join(', ')}.
+    const prompt = `You are an AI music curator. You are tasked with creating a playlist of ${length} songs that will transition the listener from ${currentMood} to ${targetMood}. The playlist should consist of songs in the following genres or match the general energy of them: ${genres.join(', ')}.
     The songs in your playlists should be real songs by popular artists. Carefully select each song to adhere to the guidelines and the desired mood transition.`;
     
     try{
@@ -78,5 +77,4 @@ export async function getRecommendations(
     }
 };
 
-getRecommendations("happy", "sad", ["pop", "rock"], ["guitar", "drums"], "5"); // Example usage
 
