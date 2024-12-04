@@ -1,20 +1,19 @@
-/**
- * @description: Provides code for survey slider component
- * @author: Angelo Aromin
- */
 
-import React, { useState } from "react";
+import React from "react";
 import ReactSlider from "react-slider";
 
-function SurveySlider() {
-  const [value, setValue] = useState(10);
+interface SurveySliderProps {
+  value: number;
+  onChange: (value: number) => void;
+}
 
+const SurveySlider: React.FC<SurveySliderProps> = ({ value, onChange }) => {
   return (
     <div className="sliderHolder">
       <h1>Songs: {value}</h1>
       <ReactSlider
         value={value}
-        onChange={(newValue) => setValue(newValue)}
+        onChange={onChange}
         min={1}
         max={50}
         className="slider"
@@ -23,6 +22,6 @@ function SurveySlider() {
       />
     </div>
   );
-}
+};
 
 export default SurveySlider;

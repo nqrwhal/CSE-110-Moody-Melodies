@@ -26,14 +26,12 @@ router.get('/recommendations', async (req: Request, res: Response) => {
         currentMood: string;
         targetMood: string;
         genres?: string[];
-        instruments?: string[];
         length?: number;
     }
 
     const currentMood = req.query.currentMood as string;
     const targetMood = req.query.targetMood as string;
     const genres = req.query.genres as string[];
-    const instruments = req.query.instruments as string[];
     const length = req.query.length as string;
 
 
@@ -58,10 +56,7 @@ router.get('/recommendations', async (req: Request, res: Response) => {
         return res.status(400).json({ error: 'Genres must be an array' });
     }
 
-    // Validate 'instruments' if present
-    if (instruments && !Array.isArray(instruments)) {
-        return res.status(400).json({ error: 'Instruments must be an array' });
-    }
+
 
 
 
@@ -71,7 +66,6 @@ router.get('/recommendations', async (req: Request, res: Response) => {
             currentMood.toLowerCase(),
             targetMood.toLowerCase(),
             genres,
-            instruments,
             length
         );        
         res.status(200).json(recommendations);
