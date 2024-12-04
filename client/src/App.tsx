@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { LoginView } from './views/LoginView';
-import { SurveyAPICall } from './views/SurveyAPICall';
+//import { SurveyAPICall } from './views/SurveyAPICall';
 import { HomePageView } from './views/HomePageView';
 import { SurveyView1simple } from './views/SurveyView1simple';
 import { SurveyView1advanced } from './views/SurveyView1advanced';
@@ -21,7 +21,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<LoginView />} />
-          <Route path="/api" element={<SurveyAPICall />} />
+          {/* <Route path="/api" element={<SurveyAPICall />} /> */}
           <Route 
             path="/home" 
             element={
