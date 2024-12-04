@@ -8,19 +8,19 @@ The file structure consists of two main folders, one for the server side and ano
 
 ### Login ###
 
-![Image of LoginPage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/ReadMeUpdates/DemoImages/login.png) 
+![Image of LoginPage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/Main/DemoImages/login.png) 
 
 The login page lets users create their own accounts which will let them save recommended playlists. 
 
 ### Home ###
 
-![Image of HomePage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/ReadMeUpdates/DemoImages/home.png) 
+![Image of HomePage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/Main/DemoImages/home.png) 
 
 The home page lets users see all their saved playlists and serves as the page that has the rest of the features of our web app. Here, users can edit and delete playlists whenever they want. They can also access the surveys through here.
 
 ### Surveys ###
 
-![Image of SurveyPage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/ReadMeUpdates/DemoImages/survey.png) 
+![Image of SurveyPage](https://github.com/nqrwhal/CSE-110-Moody-Melodies/blob/Main/DemoImages/survey.png) 
 
 The survey has two types: a simple one-question survey that gives users a quick recommendation or a more 'advanced' survey that gives users more personalized recommendations. 
 
