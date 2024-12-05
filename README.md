@@ -24,11 +24,11 @@ The home page lets users see all their saved playlists and serves as the page th
 
 The survey has two types: a simple one-question survey that gives users a quick recommendation or a more 'advanced' survey that gives users more personalized recommendations. 
 
-### Collaborators ###
-- Angelo Aromin
-- Enrique Aranda
-- Mark Yan
-- Yufei Ma
-- Yuliana Chavez
-- Yusuf Jangda
-- Yves Mojica
+### Collaborators: Github ID ###
+- Angelo Aromin: ArrowMin
+- Enrique Aranda: earanda4
+- Mark Yan: SwiftGapple
+- Yufei Ma: nqrwhal
+- Yuliana Chavez: ygchavez
+- Yusuf Jangda: yjangda
+- Yves Mojica: Yves-M22
