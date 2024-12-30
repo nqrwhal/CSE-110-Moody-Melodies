@@ -9,6 +9,8 @@ export interface Song {
 }
 export type Playlist = Song[];
 
+
+//nonfunctional api key
 const genAI = new GoogleGenerativeAI("AIzaSyD2TzN5WBBVC-TpS-LGu39S-dvQDXAIG98");
 
 const playlistSchema = {
